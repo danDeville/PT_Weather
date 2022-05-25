@@ -54,8 +54,6 @@ export const getProfile = () => {
       const displayName = user.displayName
       const email = user.email
       const uid = user.uid
-
-      console.log(displayName, email, uid)
     }
   }
 }
@@ -102,7 +100,7 @@ export const loginFacebook = () => {
     const auth = getAuth()
     signInWithPopup(auth, facebook)
       .then(({ user }) => {
-        console.log(user, 'Usuario autorizado')
+        console.log('Usuario autorizado')
       })
       .catch(error => {
         console.warn(error, 'No autorizado')
@@ -116,7 +114,6 @@ export const registroAsync = (nombre, email, contraseña) => {
     const auth = getAuth()
     createUserWithEmailAndPassword(auth, email, contraseña)
       .then(async ({ user }) => {
-        console.log(user)
         await updateProfile(auth.currentUser, { displayName: nombre })
         dispatch(registroSync(nombre, email, contraseña))
         alert('Usuario Registrado de manera exitosa')

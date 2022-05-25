@@ -28,7 +28,6 @@ const Login = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(formValue)
     dispatch(loginAsync(user, pass))
     reset()
   }

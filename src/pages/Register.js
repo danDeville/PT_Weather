@@ -72,7 +72,6 @@ const Register = (props) => {
             }}
             validationSchema={SingUpSchema}
             onSubmit={values => {
-              console.log(values.nombre, values.email, values.contraseña)
               dispatch(registroAsync(values.nombre, values.email, values.contraseña))
             }}
           >

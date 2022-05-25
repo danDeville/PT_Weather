@@ -1,9 +1,16 @@
+// Base
 import React from 'react'
 
-const Layout = ({children}) => {
+// Components
+import Navbar from '../components/Navbar'
+
+const Layout = ({ children }) => {
   return (
-    <div>
-      {children}
+    <div className="bg-background">
+      <Navbar />
+      <div className="w-full max-w-7xl mx-auto h-full p-4">
+        {children}
+      </div>
     </div>
   )
 }
