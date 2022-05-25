@@ -1,6 +1,9 @@
 // Base
 import React, { useState } from "react"
 
+// Components
+import ListUser from "./ListUser"
+
 // Material UI
 import { IconButton } from "@mui/material"
 import Drawer from "@mui/material/Drawer"
@@ -27,9 +30,7 @@ const DrawerUser = (props) => {
         open={showDrawer}
         onClose={handleCloseDrawer}
       >
-        <div>
-          Hola
-        </div>
+        <ListUser />
       </Drawer>
     </>
   )
