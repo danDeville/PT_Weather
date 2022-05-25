@@ -16,3 +16,11 @@ body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.card-container::-webkit-scrollbar {
+  display: none;
+}

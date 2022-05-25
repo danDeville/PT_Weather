@@ -21,7 +21,7 @@ root.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <React.StrictMode>
-        <AppRouter />
+        <AppRouter className="base-app"/>
       </React.StrictMode>
     </ThemeProvider>
   </Provider>
