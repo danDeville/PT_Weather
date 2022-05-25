@@ -1,7 +1,9 @@
+import { Fab } from '@mui/material'
 import React, { useEffect, useState, useCallback } from 'react'
-import SearchIcon from '@mui/icons-material/Search'
 import CardWeather from '../components/CardWeather'
 import LoadingSpinner from '../components/LoadingSpinner'
+import AddIcon from '@mui/icons-material/Add'
+import DialogCrearUser from '../components/DialogCrearUser'
 
 const Home = () => {
   const [city, setCity] = useState('')
@@ -29,14 +31,13 @@ const Home = () => {
       const data = await response.json()
       const latitude = data?.features[0]?.center[1]
       const longitude = data?.features[0]?.center[0]
-      if(data.features.length > 0) {
+      if (data.features.length > 0) {
         const URL_API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&language=es&appid=a2e0be32ce7c139b60a705049d2723f0`
         const URL_FORECAST = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=current&appid=a2e0be32ce7c139b60a705049d2723f0`
         const response_weather = await fetch(URL_API)
-        const data_weather =  await response_weather.json()
+        const data_weather = await response_weather.json()
         const response_forecast = await fetch(URL_FORECAST)
         const data_forecast = await response_forecast.json()
-        console.log(data_weather, data_forecast, 'Datos')
         setWeatherData({
           weather: data_weather,
           forecast: data_forecast
@@ -47,7 +48,6 @@ const Home = () => {
     } finally {
       setLoading(false)
     }
-
   }
 
   useEffect(() => {
@@ -63,33 +63,43 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
-    <div className="">
-      <input
-        name="search"
-        className="w-full h-9 px-3"
-        placeholder="Buscar...."
-        value={city}
-        onChange={handleChange}
-      />
-    </div>
+    <div className="flex flex-col gap-4">
+      <section className="flex items-center gap-4 w-full">
+        <input
+          name="search"
+          className="
+            w-5/6 h-9
+            px-3 rounded-md
+            text-primary
+            bg-background outline-0
+            border border-primary
+          "
+          placeholder="Buscar ciudad....."
+          value={city}
+          onChange={handleChange}
+        />
 
-    <div className="">
-      {loading ? (<LoadingSpinner /> ) : (
-        <>
-          { weatherData ?(
-            <CardWeather
-              weather={weatherData.weather}
-              forecast={weatherData.forecast}
-              city={city}
-            />
-          ) :(
-            <h1>Sin datos</h1>
-          )}
-        </>
-      )}
+        <div className="text-right w-1/6">
+          <DialogCrearUser />
+        </div>
+      </section>
+
+      <section>
+        {loading ? (<LoadingSpinner />) : (
+          <>
+            {weatherData ? (
+              <CardWeather
+                weather={weatherData.weather}
+                forecast={weatherData.forecast}
+                city={city}
+              />
+            ) : (
+              <h1>Sin datos</h1>
+            )}
+          </>
+        )}
+      </section>
     </div>
-  </div>
   )
 }
 
