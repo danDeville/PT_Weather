@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Weather Report - React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_Un sitio diseñado para consultar el estado del clima a nivel mundial y los pronósticos climáticos de manera actualizada._
 
-## Available Scripts
+Proyecto para la consulta del clima, establece el clima actual de la ciudad deseada. Cuenta con un sistema de pronósticos para las próximas 48 horas, los siguientes 7 días, así como también un monitoreo minuto a minuto del porcentaje de precipitación para la ciudad elegida. Como funcionalidad adicional cuenta con la opción de Crear, Listar, Editar y Eliminar. Tiene su propio módulo de Auth creado con Firebase.
 
-In the project directory, you can run:
+<p align="center">
+  <img src="https://res.cloudinary.com/dz8on44po/image/upload/v1653528770/blockMaster/s3ck1hq7fr87gastpcks.png">
+</p>
 
-### `npm start`
+## Comenzando 🚀
+Este proyecto fue iniciado con [Create React App](https://github.com/facebook/create-react-app).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm start o npm run dev`
+
+Ejecuta la aplicación en el modo de desarrollo.\
+Abra [http://localhost:3000](http://localhost:3000) para verlo en su navegador.
+
+La página se volverá a cargar cuando realice cambios.\
+También puede ver errores de pelusa en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ejecuta el modo de prueba \
+Consulte la sección sobre [ejecutar pruebas] (https://facebook.github.io/create-react-app/docs/running-tests) para obtener más información.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.\
+Empaqueta correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La compilación se minimiza y los nombres de archivo incluyen los hashes.\
+¡Tu aplicación está lista para ser implementada!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Consulte la sección sobre [implementación](https://facebook.github.io/create-react-app/docs/deployment) para obtener más información.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Nota: esta es una operación unidireccional. ¡Una vez que se'ejecuta', no puedes volver atrás!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si no está satisfecho con la herramienta de compilación y las opciones de configuración, puede "ejecutar" en cualquier momento. Este comando eliminará la dependencia de compilación única de su proyecto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+En cambio, copiará todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente en su proyecto para que tenga control total sobre ellos. Todos los comandos, excepto "expulsar", seguirán funcionando, pero apuntarán a los scripts copiados para que pueda modificarlos. En este punto estás por tu cuenta.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+No tienes que usar nunca `eject`. El conjunto de funciones seleccionadas es adecuado para implementaciones pequeñas y medianas, y no debe sentirse obligado a usar esta función. Sin embargo, entendemos que esta herramienta no sería útil si no pudiera personalizarla cuando esté listo para hacerlo.
 
-## Learn More
+## Construido con 🛠️
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Para la construcción y desarrollo de esta aplicación se utilizaron las siguientes herramientas._
+* [React](https://es.reactjs.org/) - Framework web JavaScript
+* [React Router DOM](https://v5.reactrouter.com/web/guides/quick-start) - Paquete npm para implementar enrutamiento dinámico
+* [Firebase](https://firebase.google.com/products/realtime-database/?utm_source=google&utm_medium=cpc&utm_campaign=latam-CO-all-es-dr-SKWS-all-all-trial-p-dr-1011454-LUAC0016196&utm_content=text-ad-none-any-DEV_c-CRE_545402043102-ADGP_Hybrid%20%7C%20SKWS%20-%20PHR%20%7C%20Txt%20~%20Compute_Firebase-KWID_43700066403055587-kwd-307216164692&utm_term=KW_firebase-ST_Firebase&gclid=CjwKCAjw7IeUBhBbEiwADhiEMTM67vFBzmazphDPjpncqV1DhucExdr0G-NBBCm7aJSoccUqKnV0aRoCphwQAvD_BwE&gclsrc=aw.ds) - Backend
+* [Redux](https://es.redux.js.org/) - Manejo del estado de las aplicaciones
+* [Formik](https://formik.org/) - Manejo de formularios
+* [Tailwind Css](https://tailwindcss.com/) - Libreria de estilos CSS
+* [Material UI](https://mui.com/) - Libreria de componentes para React
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Autor ✒️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* **Daniel Tinjaca** - *Desarrollo Inicial* - [danDeville](https://github.com/danDeville)
 
-### Analyzing the Bundle Size
+## Licencia 📄
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Este proyecto está bajo Licencia MIT
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+Desarrollado con 🖤 por [danDeville](github.com/danDeville) 🤘😎🤘
