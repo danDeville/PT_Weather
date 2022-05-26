@@ -45,46 +45,23 @@ export const editUsuarioSync = (user) => {
 export const editUsuarioAsync = (id, user) => {
   return async (dispatch) => {
     const colectionList = collection(DB, 'user-list')
-    const q = query(colectionList, where('id', '==', id))
+    const q = query(colectionList, where('id', '===', id))
     const datosQ = await getDocs(q)
-    let id
+    let id_user
 
     datosQ.forEach(async(doc) => {
-      id = doc.id
+      id_user = doc.id
     })
 
-    const docRef = doc(DB, 'user-list', id)
-    await updateDoc(docRef, user)
-    .then(response => {
+    const reference = doc(DB, 'user-list', id_user)
+    await updateDoc(reference, user)
+    try {
       dispatch(editUsuarioSync(user))
-    })
-    .catch(error => {
-      console.log(error)
-    })
-
-    dispatch(listUsuariosAsync(user))
-  }
-}
-
-// Detalle Usuario
-export const detailUsuarioSync = (user) => {
-  return {
-    type: typesUser.detail,
-    payload: user
-  }
-}
-
-export const detailUsuarioAsync = (id) => {
-  return async (dispatch) => {
-    const colectionList = collection(DB, 'user-list')
-    const q = query(colectionList, where('id', '==', id))
-    const datosQ = await getDocs(q)
-
-    const users = datosQ.docs.forEach(e => {
-      e.data()
-    })
-
-    dispatch(listUsuariosAsync(users))
+    }
+    catch(error) {
+      console.error(error)
+    }
+    dispatch(listUsuariosAsync())
   }
 }
 
@@ -106,6 +83,7 @@ export const listUsuariosAsync = () => {
         ...list.data()
       })
     })
+
     dispatch(listUsuariosSync(users))
   }
 }
