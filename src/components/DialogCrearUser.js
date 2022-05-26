@@ -42,7 +42,7 @@ function SimpleDialog(props) {
     handleClose()
     setTimeout(() => {
       window.location.reload()
-    }, 1500)
+    }, 1000)
   }
 
   const { id, name, lastname, email, age, country } = formValue
@@ -167,7 +167,7 @@ function SimpleDialog(props) {
               bg-primary rounded-md
             '
           >
-            Crear Película
+            Crear Usuario
           </button>
         </form>
       </DialogContent>

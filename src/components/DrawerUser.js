@@ -12,7 +12,7 @@ import Drawer from "@mui/material/Drawer"
 import CloseIcon from "@mui/icons-material/Close"
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 
-const DrawerUser = (props) => {
+const DrawerUser = () => {
   const [showDrawer, setShowDrawer] = useState(false)
 
   const handleCloseDrawer = () => setShowDrawer(false)
@@ -30,7 +30,9 @@ const DrawerUser = (props) => {
         open={showDrawer}
         onClose={handleCloseDrawer}
       >
-        <ListUser />
+        <aside className="w-full md:w-[420px]">
+          <ListUser />
+        </aside>
       </Drawer>
     </>
   )
