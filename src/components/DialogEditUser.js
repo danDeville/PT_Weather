@@ -17,7 +17,6 @@ import {
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
-
 export default function DialogEditarUser({datos, setModal}) {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(true)
@@ -47,7 +46,12 @@ export default function DialogEditarUser({datos, setModal}) {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <header className="flex items-center justify-between p-4 border border-b-primary">
+      <header
+        className="
+          flex items-center justify-between
+          p-4 border border-b-primary
+        "
+      >
         <DialogTitle style={{ padding: 0 }}>
           Editar Usuario
         </DialogTitle>
@@ -122,7 +126,6 @@ export default function DialogEditarUser({datos, setModal}) {
             placeholder='Correo electrónico'
             onChange={handleInputChange}
           />
-
 
           <label className='block my-2'>Edad del usuario</label>
           <input

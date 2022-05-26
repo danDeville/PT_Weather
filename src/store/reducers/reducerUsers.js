@@ -18,8 +18,7 @@ export const reducerUsers = (state =initialState, action) => {
 
     case typesUser.edit:
       return {
-        ...state,
-        users: state.users.map(user => user.id === action.payload.id ? action.payload : user)
+        ...state
       }
 
     case typesUser.delete:

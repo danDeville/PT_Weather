@@ -6,10 +6,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteUsuarioAsync, listUsuariosAsync } from '../store/actions/actionsUser'
 
 // Material UI
-import { Avatar, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemText, Menu, MenuItem, Typography } from '@mui/material'
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material'
+import {
+  Avatar,
+  Divider,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography
+} from '@mui/material'
 import { deepOrange } from '@mui/material/colors'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
 import DialogEditarUser from './DialogEditUser'
 
 const ListUser = () => {
@@ -17,6 +23,8 @@ const ListUser = () => {
   const { users } = useSelector(store => store.userStore)
 
   const [openModal, setOpenModal] = useState(false)
+  let [modal, setModal] = useState(false)
+  let [datos, setDatos] = useState([])
 
   const handleOpenModal = () => {
     setOpenModal(true)
@@ -24,18 +32,6 @@ const ListUser = () => {
 
   const handleCloseModal = () => {
     setOpenModal(false)
-  }
-
-  let [modal, setModal] = useState(false)
-  let [datos, setDatos] = useState([])
-
-  const [anchorEl, setAnchorEl] = useState(null)
-  const open = Boolean(anchorEl)
-  const handleClickMenu = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleCloseMenu = () => {
-    setAnchorEl(null)
   }
 
   useEffect(() => {
@@ -47,21 +43,27 @@ const ListUser = () => {
     setModal(true)
   }
 
-  const handleDelete = () => {
-    dispatch(deleteUsuarioAsync())
-    handleCloseModal()
-  }
-
   return (
     <div>
       {
         users.length === 0
-        ? (<h1>No hay usuarios</h1>)
+        ? (
+            <div
+              className="
+                flex items-center justify-center
+                w-full h-[calc(100vh-120px)]
+              "
+            >
+              <h4 className="text-lg font-medium">
+                No hay usuarios
+              </h4>
+            </div>
+          )
         : (
           <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             {users.map(us => (
               <div key={us.id}>
-                <ListItem alignItems="flex-start">
+                <ListItem alignItems="flex-center">
                   <ListItemAvatar>
                     <Avatar sx={{ bgcolor: deepOrange[500] }} />
                   </ListItemAvatar>
@@ -83,33 +85,18 @@ const ListUser = () => {
                       </span>
                     }
                   />
-                  {/* <div>
-                    <IconButton
-                      id="basic-button"
-                      aria-controls={open ? 'basic-menu' : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? 'true' : undefined}
-                      onClick={handleClickMenu}
-                    >
-                      <MoreVertIcon />
-                    </IconButton>
-                    <Menu
-                      elevation={1}
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleCloseMenu}
-                      MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                      }}
-                    >
-                      <MenuItem onClick={() => editar(us)}>Editar Usuario</MenuItem>
-                      <MenuItem onClick={handleOpenModal}>Eliminar Usuario</MenuItem>
-                    </Menu>
-                  </div> */}
-                  <button onClick={() => dispatch(deleteUsuarioAsync(us.id))}>
-                    Eliminar
-                  </button>
+                  <section className="flex flex-col gap-3">
+                    <button
+                      className="w-full p-1 bg-yellow-500 text-white text-sm rounded-sm"
+                      onClick={() => editar(us)}>
+                      Editar
+                    </button>
+                    <button
+                      className="w-full p-1 bg-red-700 text-white text-sm rounded-sm"
+                      onClick={() => dispatch(deleteUsuarioAsync(us.id))}>
+                      Eliminar
+                    </button>
+                  </section>
                 </ListItem>
                 <Divider variant="inset" component="li" />
               </div>

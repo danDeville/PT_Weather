@@ -68,7 +68,7 @@ const Home = () => {
         <input
           name="search"
           className="
-            w-5/6 h-9
+            w-1/2 md:w-2/3 lg:w-5/6 h-9
             px-3 rounded-md
             text-primary
             bg-background outline-0
@@ -79,7 +79,7 @@ const Home = () => {
           onChange={handleChange}
         />
 
-        <div className="text-right w-1/6">
+        <div className="text-right w-2/2 md:w-1/3 lg:w-1/6">
           <DialogCrearUser />
         </div>
       </section>
@@ -94,7 +94,14 @@ const Home = () => {
                 city={city}
               />
             ) : (
-              <h1>Sin datos</h1>
+              <div
+                className="
+                  flex justify-center items-center
+                  h-[calc(100vh-165px)]
+                "
+              >
+                <h1>Sin datos</h1>
+              </div>
             )}
           </>
         )}

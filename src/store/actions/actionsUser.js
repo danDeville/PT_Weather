@@ -45,7 +45,7 @@ export const editUsuarioSync = (user) => {
 export const editUsuarioAsync = (id, user) => {
   return async (dispatch) => {
     const colectionList = collection(DB, 'user-list')
-    const q = query(colectionList, where('id', '===', id))
+    const q = query(colectionList, where('id', '==', id))
     const datosQ = await getDocs(q)
     let id_user
 
@@ -61,6 +61,7 @@ export const editUsuarioAsync = (id, user) => {
     catch(error) {
       console.error(error)
     }
+
     dispatch(listUsuariosAsync())
   }
 }

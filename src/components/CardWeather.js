@@ -35,11 +35,17 @@ const CardWeather = ({ weather, forecast, city }) => {
   // let icon = url +(weather.weather[0].icon || '') + '.png'
 
   return (
-    <div className="flex w-full h-[800px] bg-tertiary rounded-md">
+    <div
+      className="
+        flex flex-col md:flex-row
+        w-full h-auto md:h-screen lg:h-[850px]
+        bg-tertiary rounded-md
+      "
+    >
       <aside
         className="
           relative
-          w-3/12 h-full rounded-l-md
+          w-full md:w-3/12 h-full rounded-t-md md:rounded-l-md md:rounded-t-none
           bg-[url('https://images.unsplash.com/photo-1544111795-fe8b9def73f6?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1954')]
           bg-cover
         "
@@ -48,7 +54,7 @@ const CardWeather = ({ weather, forecast, city }) => {
           className="
             flex flex-col justify-center items-start
             w-full h-full p-4
-            bg-black/70 text-white rounded-l-md
+            bg-black/70 text-white rounded-t-md md:rounded-l-md md:rounded-t-none
           "
         >
           <h3 className="font-bold capitalize text-3xl text-secondary">
@@ -102,12 +108,12 @@ const CardWeather = ({ weather, forecast, city }) => {
         </section>
       </aside>
 
-      <main className="w-9/12 px-4 py-6">
+      <main className="w-full md:w-9/12 h-auto md:h-screen lg:h-auto overflow-y-auto lg:overflow-y-hidden px-4 py-6">
         <h3 className="mb-4 text-2xl font-medium text-primary">
           Forecast for 8 days
         </h3>
 
-        <section className="grid grid-cols-4 grid-rows-2 gap-3">
+        <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-3">
           {
             forecast.daily.map((day, index) => (
               <aside
@@ -160,15 +166,15 @@ const CardWeather = ({ weather, forecast, city }) => {
           }
         </section>
 
-        <div className='mt-4 flex flex-row gap-4'>
-          <section className="w-1/2">
+        <div className='mt-4 flex flex-col lg:flex-row gap-4'>
+          <section className="w-full lg:w-1/2">
             <h3 className="mb-4 text-2xl font-medium text-primary">
               Forecast for the next 48 hours
             </h3>
             <List
               className="
                 card-container
-                w-full h-full max-h-[316px]
+                w-full h-full max-h-[500px] lg:max-h-[360px]
                 overflow-y-auto
                 bg-slate-100 rounded-lg
               "
@@ -225,7 +231,7 @@ const CardWeather = ({ weather, forecast, city }) => {
             </List>
           </section>
 
-          <section className="w-1/2">
+          <section className="w-full lg:w-1/2">
             <h3 className="mb-4 text-2xl font-medium text-primary">
               Minute by minute monitoring
             </h3>
@@ -234,7 +240,7 @@ const CardWeather = ({ weather, forecast, city }) => {
               style={{backgroundColor: '#f1f5f9', borderRadius: '8px'}}
               className="
                 card-container
-                w-full h-full max-h-[316px]
+                w-full h-full max-h-[500px] lg:max-h-[360px]
                 overflow-y-auto
               "
             >
