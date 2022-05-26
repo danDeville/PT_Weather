@@ -6,7 +6,12 @@ import { CircularProgress } from '@mui/material'
 
 const LoadingSpinner = () => {
   return (
-    <div className="w-full h-full">
+    <div
+      className="
+        flex justify-center items-center
+        w-screen max-w-7xl h-[calc(100vh-165px)]
+      "
+    >
       <CircularProgress />
     </div>
   )
